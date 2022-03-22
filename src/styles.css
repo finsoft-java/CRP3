@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~bootstrap/dist/css/bootstrap.css";
 html,
 body {
     height: 100%;
@@ -10,7 +9,12 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
+.cdk-overlay-connected-position-bounding-box{
+    top:70px !important;
+}
+.mat-table {
+    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 7%), 0px 8px 10px 1px rgb(0 0 0 / 5%), 0px 3px 3px 2px rgb(0 0 0 / 3%) !important;
+}
 .navbar-header {
     float: none;
     text-align: center;
@@ -18,7 +22,9 @@ body {
 .content{
     margin:30px 0px;
 }
-
+.mat-menu-content{
+    padding:0px !important;
+}
 /* top bar */
 
 .navbar {
@@ -32,7 +38,7 @@ body {
 
 .navbar a {
     color: #fff;
-    font-weight: 300;
+    font-weight: 600;
     text-decoration: none
 }
 

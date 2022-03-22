@@ -1,1 +1,53 @@
-<p>home works!</p>
+<h5 style="text-align:center">ELABORAZIONI - Riepilogo Stato Procedure</h5>
+<p style="text-align:center">Procedura in corso: Nessun Processo</p>
+
+<div style="margin-top:20px; margin-bottom: 20px;">
+    <table mat-table [dataSource]="dataSource" style="width:100%;" class="contentTable mat-elevation-z8">
+        <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()">
+                </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selection.toggle(row) : null"
+                            [checked]="selection.isSelected(row)">
+                </mat-checkbox>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="procedura">
+            <th mat-header-cell *matHeaderCellDef> Procedura </th>
+            <td mat-cell *matCellDef="let element" [title]="element.DES_CONTO || ''"> {{ element.PROCEDURA }} </td>
+        </ng-container>
+        <ng-container matColumnDef="stato">
+            <th mat-header-cell *matHeaderCellDef> Segno </th>
+            <td mat-cell *matCellDef="let element"> {{ element.STATO }} </td>
+        </ng-container>
+        <ng-container matColumnDef="dataInizio">
+            <th mat-header-cell *matHeaderCellDef class="importi"> Data Inizio </th>
+            <td mat-cell *matCellDef="let element" class="importi"> {{ element.DATA_INIZIO }} </td>
+        </ng-container>
+        <ng-container matColumnDef="dataFine">
+            <th mat-header-cell *matHeaderCellDef class="importi"> Data Fine </th>
+            <td mat-cell *matCellDef="let element" class="importi"> {{ element.DATA_FINE }} </td>
+        </ng-container>
+        <ng-container matColumnDef="DurMedia">
+            <th mat-header-cell *matHeaderCellDef class="importi"> Durata Media </th>
+            <td mat-cell *matCellDef="let element" class="importi"> {{ element.DUR_MEDIA }} </td>
+        </ng-container>
+        <ng-container matColumnDef="NumSegn">
+            <th mat-header-cell *matHeaderCellDef class="importi"> Num. Segnalazioni </th>
+            <td mat-cell *matCellDef="let element" class="importi"> {{ element.NUM_SEGN }} </td>
+        </ng-container>
+        <ng-container matColumnDef="button">
+            <th mat-header-cell *matHeaderCellDef class="importi">   </th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-raised-button color="primary" (click)="addStorico(this)">Storico</button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

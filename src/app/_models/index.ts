@@ -5,3 +5,4 @@ export * from './RigaContoAnalitica';
 export * from './User';
 export * from './ListBean';
 export * from './ValueBean';
+export * from './Elaborazione';

@@ -26,62 +26,50 @@
     </div>
   </div>
 -->
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="javascript:void(0);"><img src="../assets/img/logoEstesoRiskPII.jpg"></a>
-      </div>
-  
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Link</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="navbar-form navbar-left">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Link</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+<div style="width: 300px;position: fixed;top: 67px;right: 0px;padding: 10px;background-color: #f2c979;border-radius: 0px 0px 0px 17px;">
+  <p style="font-size:12px;margin-bottom:0px;">
+      Data Rif: 31/05/2021 - V.: 14  <br>
+      INSTVALS_GEST: P20210531MSIVGCONSO- <br>
+      COUNTERPARTY_MART: P20210503UG 
+  </p>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="javascript:void(0);"><img src="../assets/img/logoEstesoRiskPII.jpg"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home">MdP RADAR <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Cluster Singoli RADAR</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">MdP RADAR 2</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" style="margin-right: 60px;">
+      <button mat-button [matMenuTriggerFor]="menu" style="text-transform: uppercase;">Amministrazione <mat-icon>menu</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Nuovo Periodo</a>
+        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Nuova Versione</a>
+        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Switch Periodo/Versione</a>
+        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Riconciliazione</a>
+        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Elaborazioni</a>      
+        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Invia a B2WEEN</a>
+        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Invia a TDB</a>       	       	 	       	 	       	 	    
+      </mat-menu>
+    </form>
+    <img src="../assets/img/logoIntesa.gif">
+  </div>
+</nav>
   <div class="content" role="main">
-    <div class="container-fluid">
+    <div class="container">
       <alert></alert>
       <router-outlet></router-outlet>
     </div>
-<!--footer style="background-color: black;color:#fff;padding:30px;">
-    <div class="container">
-        Finsoft 2021
-    </div>
-</footer-->
   </div>
 </mat-drawer-container>
