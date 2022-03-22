@@ -1,0 +1,37 @@
+.contentTable {
+    width:100%;
+}
+
+@media (max-width: 767px) {
+    .new-schema {
+        margin-bottom: 30px;
+        float: none;
+        display: block;
+    }
+}
+
+.mat-row:hover > .mat-cell{
+    background-color: #3f51b5;
+    color: white;
+}
+
+.typeDropdown {
+    width: 230px;
+}
+
+button {
+    width: 40mm;
+    margin: 5px 0px 0px 0px;
+}
+
+td > button:nth-child(0){
+    margin: 0px 0px 5px 0px;
+}
+
+td, th {
+    text-align: center !important;
+}
+
+.importi {
+    text-align: right;
+}
