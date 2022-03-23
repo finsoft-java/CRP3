@@ -8,4 +8,5 @@ export interface Elaborazione {
   DATA_FINE: string;
   DUR_MEDIA: string;
   NUM_SEGN: number;
+  TIPO_RIGA?: 'normale'|'intestazione'|'storico';
 }
