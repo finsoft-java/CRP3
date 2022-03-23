@@ -11,6 +11,7 @@ import { NuovaVersioneComponent } from './nuova-versione/nuova-versione.componen
 import { SwitchComponent } from './switch/switch.component';
 import { StoricoElaborazioneComponent } from './storico-elaborazione/storico-elaborazione.component';
 import { LancioProcedureComponent } from './lancio-procedure/lancio-procedure.component';
+import { SegnalazioniComponent } from './segnalazioni/segnalazioni.component';
 
 const routes: Routes = [
   { path: 'mdp', component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'nuova-versione', component: NuovaVersioneComponent, canActivate: [AuthGuard] },
   { path: 'switch', component: SwitchComponent, canActivate: [AuthGuard] },
   { path: 'riconciliazione', component: RiconciliazioneComponent, canActivate: [AuthGuard] },
+  { path: 'segnalazioni/:idElaborazione', component: SegnalazioniComponent, canActivate: [AuthGuard] },
   { path: 'storico/:idElaborazione', component: StoricoElaborazioneComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'mdp' }];
 

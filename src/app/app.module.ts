@@ -41,6 +41,7 @@ import { SwitchComponent } from './switch/switch.component';
 import { RiconciliazioneComponent } from './riconciliazione/riconciliazione.component';
 import { StoricoElaborazioneComponent } from './storico-elaborazione/storico-elaborazione.component';
 import { LancioProcedureComponent } from './lancio-procedure/lancio-procedure.component';
+import { SegnalazioniComponent } from './segnalazioni/segnalazioni.component';
 
 registerLocaleData(localeIt);
 
@@ -58,7 +59,8 @@ registerLocaleData(localeIt);
     SwitchComponent,
     RiconciliazioneComponent,
     StoricoElaborazioneComponent,
-    LancioProcedureComponent
+    LancioProcedureComponent,
+    SegnalazioniComponent
   ],
   imports: [
     HttpClientModule,
