@@ -1,8 +1,10 @@
+import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { Component, OnInit } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ElaborazioniService } from '../_services/elaborazioni.service';
 import { Elaborazione } from '../_models/Elaborazione';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +12,7 @@ import { Elaborazione } from '../_models/Elaborazione';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private elabSvc: ElaborazioniService) {
+  constructor(private elabSvc: ElaborazioniService,private router: Router) {
     this.service = elabSvc;
   }
 
@@ -49,5 +51,6 @@ export class HomeComponent implements OnInit {
 
   addStorico(data: any) {
     console.log(data);
+    this.router.navigate(['storico/'+data]);
   }
 }

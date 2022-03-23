@@ -1,3 +1,4 @@
+import { StoricoElaborazioneComponent } from './storico-elaborazione/storico-elaborazione.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cruscotto', component: CruscottoComponent, canActivate: [AuthGuard] },
+  { path: 'storico/:idElaborazione', component: StoricoElaborazioneComponent, canActivate: [AuthGuard] },
   { path: 'analisi-commessa/:codCommessa', component: AnalisiCommessaComponent, canActivate: [AuthGuard] },
   { path: 'anteprima-giroconto/:codCommessa', component: AnteprimaGirocontoComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'home' }];

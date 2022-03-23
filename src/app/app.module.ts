@@ -36,6 +36,7 @@ import { CruscottoComponent } from './cruscotto/cruscotto.component';
 import { AnalisiCommessaComponent } from './analisi-commessa/analisi-commessa.component';
 import { AnteprimaGirocontoComponent } from './anteprima-giroconto/anteprima-giroconto.component';
 import { HomeComponent } from './home/home.component';
+import { StoricoElaborazioneComponent } from './storico-elaborazione/storico-elaborazione.component';
 
 registerLocaleData(localeIt);
 
@@ -48,7 +49,8 @@ registerLocaleData(localeIt);
     CruscottoComponent,
     AnalisiCommessaComponent,
     AnteprimaGirocontoComponent,
-    HomeComponent
+    HomeComponent,
+    StoricoElaborazioneComponent
   ],
   imports: [
     HttpClientModule,
