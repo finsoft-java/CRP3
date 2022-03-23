@@ -1,1 +1,24 @@
-<p>lancio-procedure works!</p>
+<h5 style="text-align:center">Lancio procedure</h5>
+
+
+<div style="margin-top:20px; margin-bottom: 100px;">
+    <div *ngFor="let proc of procedureSelezionate">
+        <h5 style="text-align: center;background-color: #f2c979;margin: 0px;padding: 5px 0px;text-transform: uppercase;">{{proc.PROCEDURA}}</h5>
+        <div *ngFor="let par of proc.PARAMETRI">
+            <div style="width: 20%; font-weight: bold;">{{par.NOME_PARAMETRO}}</div>
+            <div style="width: 80%">
+                <input *ngIf="par.TIPO=='string'" [(ngModel)]="par.VALORE_PREC"/>
+                <input *ngIf="par.TIPO=='number'" type="number" [(ngModel)]="par.VALORE_PREC"/>
+                <select *ngIf="par.TIPO=='select'" [(ngModel)]="par.VALORE_PREC">
+                    <option *ngFor="let opt of par.OPTIONS" [value]="opt.VALUE ? opt.VALUE: opt.DESC">{{opt.DESC}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <!--https://orbit-svil.syssede.systest.sanpaoloimi.com/orbit/webapp/orbit-v1/launchers-->
+
+</div>
+
+<div style="margin:0px auto;display: table;">
+    <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;color: rgb(0 98 41); font-weight: 600;" routerLink="/">Lancia</button>
+</div>

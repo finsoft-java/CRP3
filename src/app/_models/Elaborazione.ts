@@ -1,3 +1,5 @@
+import { ElabParam } from './ElabParam';
+
 export interface Elaborazione {
   ID: number;
   PROCEDURA: string;
@@ -10,4 +12,5 @@ export interface Elaborazione {
   NUM_SEGN: number;
   TIPO_RIGA?: 'normale'|'intestazione'|'storico';
   UTENTE?: string;
+  PARAMETRI?: ElabParam[];
 }
