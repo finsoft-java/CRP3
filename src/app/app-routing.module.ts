@@ -9,6 +9,7 @@ import { RiconciliazioneComponent } from './riconciliazione/riconciliazione.comp
 import { NuovoPeriodoComponent } from './nuovo-periodo/nuovo-periodo.component';
 import { NuovaVersioneComponent } from './nuova-versione/nuova-versione.component';
 import { SwitchComponent } from './switch/switch.component';
+import { StoricoElaborazioneComponent } from './storico-elaborazione/storico-elaborazione.component';
 
 const routes: Routes = [
   { path: 'mdp', component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'nuova-versione', component: NuovaVersioneComponent, canActivate: [AuthGuard] },
   { path: 'switch', component: SwitchComponent, canActivate: [AuthGuard] },
   { path: 'riconciliazione', component: RiconciliazioneComponent, canActivate: [AuthGuard] },
+  { path: 'storico/:idElaborazione', component: StoricoElaborazioneComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'mdp' }];
 
 @NgModule({
