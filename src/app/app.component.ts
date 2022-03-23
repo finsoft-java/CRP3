@@ -55,4 +55,12 @@ export class AppComponent implements OnInit {
 
   changeIcon(): void {
   }
+
+  inviaB2ween() {
+    confirm('La versione veorrente verrà inviata a BETWEEN. Procedere?');
+  }
+
+  inviaTdB() {
+    confirm('La versione veorrente verrà inviata a TdB. Procedere?');
+  }
 }
