@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   }
 
   service: ElaborazioniService;
-  displayedColumns: string[] = ['select', 'procedura', 'stato', 'dataInizio', 'dataFine', 'DurMedia', 'NumSegn', 'button'];
+  displayedColumns: string[] = ['select', 'procedura', 'stato', 'dataInizio', 'dataFine', 'DurMedia', 'NumSegn','Utente', 'button'];
   dataSources: MatTableDataSource<Elaborazione>[] = [];
   selections: SelectionModel<Elaborazione>[] = [];
 

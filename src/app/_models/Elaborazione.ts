@@ -9,4 +9,5 @@ export interface Elaborazione {
   DUR_MEDIA: string;
   NUM_SEGN: number;
   TIPO_RIGA?: 'normale'|'intestazione'|'storico';
+  UTENTE?: string;
 }

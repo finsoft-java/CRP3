@@ -19,6 +19,7 @@ export class ElaborazioniService {
         DATA_FINE: "22/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 2,
@@ -30,6 +31,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 0,
+        UTENTE: "U0J3597"
       },
       {
         ID: 3,
@@ -41,6 +43,7 @@ export class ElaborazioniService {
         DATA_FINE: "23/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 4,
@@ -52,6 +55,7 @@ export class ElaborazioniService {
         DATA_FINE: "25/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 5,
@@ -63,6 +67,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 6,
@@ -74,6 +79,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 10,
+        UTENTE: "U0J3597"
       },
       {
         ID: 7,
@@ -85,6 +91,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 8,
@@ -96,6 +103,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 9,
@@ -107,6 +115,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 10,
@@ -118,6 +127,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 11,
@@ -129,6 +139,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 12,
@@ -140,6 +151,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 13,
@@ -151,6 +163,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 14,
@@ -162,6 +175,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 14,
@@ -173,6 +187,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 14,
@@ -184,6 +199,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 14,
@@ -195,6 +211,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 14,
@@ -206,6 +223,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 14,
@@ -217,6 +235,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 14,
@@ -228,6 +247,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 14,
@@ -239,6 +259,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 14,
@@ -250,6 +271,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 14,
@@ -261,6 +283,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 14,
@@ -272,6 +295,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
       {
         ID: 14,
@@ -283,6 +307,7 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
+        UTENTE: "U0J3597"
       },
     ],
     count: 5
