@@ -40,6 +40,7 @@ import { NuovaVersioneComponent } from './nuova-versione/nuova-versione.componen
 import { SwitchComponent } from './switch/switch.component';
 import { RiconciliazioneComponent } from './riconciliazione/riconciliazione.component';
 import { StoricoElaborazioneComponent } from './storico-elaborazione/storico-elaborazione.component';
+import { LancioProcedureComponent } from './lancio-procedure/lancio-procedure.component';
 
 registerLocaleData(localeIt);
 
@@ -56,7 +57,8 @@ registerLocaleData(localeIt);
     NuovaVersioneComponent,
     SwitchComponent,
     RiconciliazioneComponent,
-    StoricoElaborazioneComponent
+    StoricoElaborazioneComponent,
+    LancioProcedureComponent
   ],
   imports: [
     HttpClientModule,

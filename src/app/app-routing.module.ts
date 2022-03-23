@@ -10,9 +10,11 @@ import { NuovoPeriodoComponent } from './nuovo-periodo/nuovo-periodo.component';
 import { NuovaVersioneComponent } from './nuova-versione/nuova-versione.component';
 import { SwitchComponent } from './switch/switch.component';
 import { StoricoElaborazioneComponent } from './storico-elaborazione/storico-elaborazione.component';
+import { LancioProcedureComponent } from './lancio-procedure/lancio-procedure.component';
 
 const routes: Routes = [
   { path: 'mdp', component: HomeComponent },
+  { path: 'lancia-procedure', component: LancioProcedureComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'cluster-singoli', component: ClusterSingoliComponent, canActivate: [AuthGuard] },
   { path: 'mdp2', component: Mdp2Component, canActivate: [AuthGuard] },

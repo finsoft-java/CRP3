@@ -36,7 +36,7 @@ export class ElaborazioniService {
         PROCEDURA: "Gruppi",
         SEZIONE: "INPUT",
         PAGINA: "MdP",
-        STATO: "EXECUTED",
+        STATO: "INITIAL",
         DATA_INIZIO: "23/02/22 08:36",
         DATA_FINE: "23/02/22 09:36",
         DUR_MEDIA: "00:60:00",
