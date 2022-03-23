@@ -32,10 +32,13 @@ import { AlertComponent } from './_components/alert.component';
 import { MatEditTableComponent } from './mat-edit-table/mat-edit-table.component';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
-import { CruscottoComponent } from './cruscotto/cruscotto.component';
-import { AnalisiCommessaComponent } from './analisi-commessa/analisi-commessa.component';
-import { AnteprimaGirocontoComponent } from './anteprima-giroconto/anteprima-giroconto.component';
 import { HomeComponent } from './home/home.component';
+import { ClusterSingoliComponent } from './cluster-singoli/cluster-singoli.component';
+import { Mdp2Component } from './mdp2/mdp2.component';
+import { NuovoPeriodoComponent } from './nuovo-periodo/nuovo-periodo.component';
+import { NuovaVersioneComponent } from './nuova-versione/nuova-versione.component';
+import { SwitchComponent } from './switch/switch.component';
+import { RiconciliazioneComponent } from './riconciliazione/riconciliazione.component';
 
 registerLocaleData(localeIt);
 
@@ -45,10 +48,13 @@ registerLocaleData(localeIt);
     MatEditTableComponent,
     AlertComponent,
     LoginComponent,
-    CruscottoComponent,
-    AnalisiCommessaComponent,
-    AnteprimaGirocontoComponent,
-    HomeComponent
+    HomeComponent,
+    ClusterSingoliComponent,
+    Mdp2Component,
+    NuovoPeriodoComponent,
+    NuovaVersioneComponent,
+    SwitchComponent,
+    RiconciliazioneComponent
   ],
   imports: [
     HttpClientModule,
@@ -81,7 +87,7 @@ registerLocaleData(localeIt);
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: LOCALE_ID, useValue: 'it-IT'}
+    { provide: LOCALE_ID, useValue: 'it-IT' }
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

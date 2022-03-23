@@ -1,19 +1,25 @@
-import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './_guards/auth.guard';
-import { CruscottoComponent } from './cruscotto/cruscotto.component';
-import { AnalisiCommessaComponent } from './analisi-commessa/analisi-commessa.component';
-import { AnteprimaGirocontoComponent } from './anteprima-giroconto/anteprima-giroconto.component';
+import { HomeComponent } from './home/home.component';
+import { Mdp2Component } from './mdp2/mdp2.component';
+import { ClusterSingoliComponent } from './cluster-singoli/cluster-singoli.component';
+import { RiconciliazioneComponent } from './riconciliazione/riconciliazione.component';
+import { NuovoPeriodoComponent } from './nuovo-periodo/nuovo-periodo.component';
+import { NuovaVersioneComponent } from './nuova-versione/nuova-versione.component';
+import { SwitchComponent } from './switch/switch.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'mdp', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'cruscotto', component: CruscottoComponent, canActivate: [AuthGuard] },
-  { path: 'analisi-commessa/:codCommessa', component: AnalisiCommessaComponent, canActivate: [AuthGuard] },
-  { path: 'anteprima-giroconto/:codCommessa', component: AnteprimaGirocontoComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: 'home' }];
+  { path: 'cluster-singoli', component: ClusterSingoliComponent, canActivate: [AuthGuard] },
+  { path: 'mdp2', component: Mdp2Component, canActivate: [AuthGuard] },
+  { path: 'nuovo-periodo', component: NuovoPeriodoComponent, canActivate: [AuthGuard] },
+  { path: 'nuova-versione', component: NuovaVersioneComponent, canActivate: [AuthGuard] },
+  { path: 'switch', component: SwitchComponent, canActivate: [AuthGuard] },
+  { path: 'riconciliazione', component: RiconciliazioneComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: 'mdp' }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,31 +1,4 @@
 <mat-drawer-container class="example-container" autosize>
-<!--
-  <div
-    class="navbar navbar-default navbar-fixed-top"
-    role="navigation"
-    *ngIf="!menuDisabled"
-  >
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <nav style="padding: 15px 0">
-          <div>
-            <button
-              mat-button
-              (click)="routerFrontend.navigate(['cruscotto'])">
-              <span>Cruscotto</span>
-          </button>
-            <button
-              mat-button
-              (click)="logout()"
-            >
-              <span>Logout</span>
-            </button>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </div>
--->
 <div style="width: 300px;position: fixed;top: 67px;right: 0px;padding: 10px;background-color: #f2c979;border-radius: 0px 0px 0px 17px;">
   <p style="font-size:12px;margin-bottom:0px;">
       Data Rif: 31/05/2021 - V.: 14  <br>
@@ -42,25 +15,22 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/home">MdP RADAR <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/mdp">MdP RADAR <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/home">Cluster Singoli RADAR</a>
+        <a class="nav-link" routerLink="/cluster-singoli">Cluster Singoli RADAR</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/home">MdP RADAR 2</a>
+        <a class="nav-link" routerLink="/mdp2">MdP RADAR 2</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" style="margin-right: 60px;">
       <button mat-button [matMenuTriggerFor]="menu" style="text-transform: uppercase;">Amministrazione <mat-icon>menu</mat-icon></button>
       <mat-menu #menu="matMenu">
-        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Nuovo Periodo</a>
-        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Nuova Versione</a>
-        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Switch Periodo/Versione</a>
-        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Riconciliazione</a>
-        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Elaborazioni</a>      
-        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Invia a B2WEEN</a>
-        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/home">Invia a TDB</a>       	       	 	       	 	       	 	    
+        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/nuovo-periodo">Nuovo Periodo</a>
+        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/nuova-versione">Nuova Versione</a>
+        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/switch">Switch Periodo/Versione</a>
+        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/riconciliazione">Riconciliazione</a> 	 	       	 	       	 	    
       </mat-menu>
     </form>
     <img src="../assets/img/logoIntesa.gif">
