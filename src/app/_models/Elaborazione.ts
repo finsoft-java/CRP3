@@ -1,5 +1,8 @@
 export interface Elaborazione {
+  ID: number;
   PROCEDURA: string;
+  SEZIONE: string;
+  PAGINA: 'MdP'|'CS'|'MdP2',
   STATO: string;
   DATA_INIZIO: string;
   DATA_FINE: string;
