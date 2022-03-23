@@ -1,9 +1,9 @@
 <h5 style="text-align:center">ELABORAZIONI - Riepilogo Stato Procedure</h5>
 <p style="text-align:center">Procedura in corso: Nessun Processo</p>
 
-<div style="margin-top:20px; margin-bottom: 20px;">
+<div style="margin-top:20px; margin-bottom: 100px;">
     <div *ngFor="let dataSource of dataSources">
-        <h2>{{dataSource.data[0].SEZIONE}}</h2>
+        <h5 style="text-align: center;background-color: #f2c979;margin: 0px;padding: 5px 0px;text-transform: uppercase;">{{dataSource.data[0].SEZIONE}}</h5>
         <table mat-table [dataSource]="dataSource" style="width:100%;margin-bottom:15px" class="contentTable mat-elevation-z8">
             <ng-container matColumnDef="select">
                 <th mat-header-cell *matHeaderCellDef>
@@ -20,7 +20,7 @@
                 </td>
             </ng-container>
             <ng-container matColumnDef="procedura">
-                <th mat-header-cell *matHeaderCellDef> Procedura </th>
+                <th mat-header-cell *matHeaderCellDef  style="width: 30%;"> Procedura </th>
                 <td mat-cell *matCellDef="let element" [title]="element.DES_CONTO || ''"> {{ element.PROCEDURA }} </td>
             </ng-container>
             <ng-container matColumnDef="stato">
@@ -43,6 +43,10 @@
                 <th mat-header-cell *matHeaderCellDef class="importi"> Num. Segnalazioni </th>
                 <td mat-cell *matCellDef="let element" class="importi"> {{ element.NUM_SEGN }} </td>
             </ng-container>
+            <ng-container matColumnDef="Utente">
+                <th mat-header-cell *matHeaderCellDef class="utente"> Utente </th>
+                <td mat-cell *matCellDef="let element" class="importi"> {{ element.UTENTE }} </td>
+            </ng-container>
             <ng-container matColumnDef="button">
                 <th mat-header-cell *matHeaderCellDef class="importi">   </th>
                 <td mat-cell *matCellDef="let element">
@@ -53,10 +57,12 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
-    <div style="margin:0px auto;display: table;">
-        <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;">Esegui Procedure</button>
-        <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;">Aggiorna Stato</button>
-        <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;">Blocca Procedure</button>
+    <div style="position: fixed; bottom: 0px;left: 0px; width: 100%;">
+        <div style="margin:0px auto;display: table;">
+            <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;color: rgb(0 98 41); font-weight: 600;">Esegui Procedure</button>
+            <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;color: rgb(0 98 41); font-weight: 600;">Aggiorna Stato</button>
+            <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;color: rgb(0 98 41); font-weight: 600;">Blocca Procedure</button>
+        </div>
     </div>
     <!--https://orbit-svil.syssede.systest.sanpaoloimi.com/orbit/webapp/orbit-v1/launchers-->
 
