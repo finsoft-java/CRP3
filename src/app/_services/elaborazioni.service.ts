@@ -11,6 +11,7 @@ export class ElaborazioniService {
   mockData2: ListBean<StoricoElab> = {
     data: [
       {
+        PROCEDURA: "Operazioni",
         STATO: "ABORTED",
         DATA_INIZIO: "24/02/22 08:36",
         DATA_FINE: "24/02/22 09:36",
@@ -19,6 +20,7 @@ export class ElaborazioniService {
         UTENTE: "U0J3597"
       },
       {
+        PROCEDURA: "Operazioni",
         STATO: "EXECUTED",
         DATA_INIZIO: "24/02/22 08:36",
         DATA_FINE: "24/02/22 09:36",
@@ -27,6 +29,7 @@ export class ElaborazioniService {
         UTENTE: "U0J3597"
       },
       {
+        PROCEDURA: "Operazioni",
         STATO: "ERROR",
         DATA_INIZIO: "24/02/22 08:36",
         DATA_FINE: "24/02/22 09:36",
@@ -353,10 +356,10 @@ export class ElaborazioniService {
       observer.complete();
     });
   }
-  getStorico(): Observable<ListBean<Elaborazione>> {
-    return new Observable<ListBean<Elaborazione>>(observer => {
+  getStorico(): Observable<ListBean<StoricoElab>> {
+    return new Observable<ListBean<StoricoElab>>(observer => {
       // JSON parse/stringify serve per eseguire una deep copy
-      const list: ListBean<Elaborazione> = JSON.parse(JSON.stringify(this.mockData2));
+      const list: ListBean<StoricoElab> = JSON.parse(JSON.stringify(this.mockData2));
       observer.next(list);
       observer.complete();
     });

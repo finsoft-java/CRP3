@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./storico-elaborazione.component.css']
 })
 export class StoricoElaborazioneComponent implements OnInit {
-  
+  nomeProc: string = '';
   idElaborazione!:string;
   displayedColumns: string[] = ['stato', 'dataInizio', 'dataFine', 'DurMedia', 'NumSegn','Utente'];
   dataSources: MatTableDataSource<StoricoElab> = new MatTableDataSource();
@@ -31,7 +31,7 @@ export class StoricoElaborazioneComponent implements OnInit {
     this.service.getStorico().subscribe(
       listBean => {
         this.dataSources.data = listBean.data;
-        console.log(this.dataSources);
+        this.nomeProc = listBean.data[0].PROCEDURA;
       },
       error => {
         console.log('Emitting error:', error);

@@ -13,6 +13,7 @@ export interface Elaborazione {
 }
 
 export interface StoricoElab {
+  PROCEDURA: string;
   STATO: string;
   DATA_INIZIO: string;
   DATA_FINE: string;
