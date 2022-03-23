@@ -57,12 +57,10 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
-    <div style="position: fixed; bottom: 0px;left: 0px; width: 100%;">
-        <div style="margin:0px auto;display: table;">
-            <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;color: rgb(0 98 41); font-weight: 600;">Esegui Procedure</button>
-            <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;color: rgb(0 98 41); font-weight: 600;">Aggiorna Stato</button>
-            <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;color: rgb(0 98 41); font-weight: 600;">Blocca Procedure</button>
-        </div>
+    <div style="margin:0px auto;display: table;">
+        <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;color: rgb(0 98 41); font-weight: 600;" (click)="eseguiProcedure()">Esegui Procedure</button>
+        <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;color: rgb(0 98 41); font-weight: 600;">Aggiorna Stato</button>
+        <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;color: rgb(0 98 41); font-weight: 600;" (click)="bloccaProcedure()">Blocca Procedure</button>
     </div>
     <!--https://orbit-svil.syssede.systest.sanpaoloimi.com/orbit/webapp/orbit-v1/launchers-->
 
