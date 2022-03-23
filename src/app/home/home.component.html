@@ -20,8 +20,8 @@
                 </td>
             </ng-container>
             <ng-container matColumnDef="procedura">
-                <th mat-header-cell *matHeaderCellDef  style="width: 30%;"> Procedura </th>
-                <td mat-cell *matCellDef="let element" [title]="element.DES_CONTO || ''"> {{ element.PROCEDURA }} </td>
+                <th mat-header-cell *matHeaderCellDef  style="width: 30%;text-align: left; "> Procedura </th>
+                <td mat-cell *matCellDef="let element" [title]="element.DES_CONTO || ''" style="text-align: left; padding: 0px 15px;"> {{ element.PROCEDURA }} </td>
             </ng-container>
             <ng-container matColumnDef="stato">
                 <th mat-header-cell *matHeaderCellDef> Stato </th>
@@ -53,18 +53,18 @@
             <ng-container matColumnDef="button">
                 <th mat-header-cell *matHeaderCellDef class="importi">   </th>
                 <td mat-cell *matCellDef="let element">
-                    <button mat-raised-button color="secondary" style="background-color: #f2c979" (click)="addStorico(element.ID)">Storico</button>
+                    <button mat-raised-button color="secondary" style="background-color: #efd7a9" (click)="addStorico(element.ID)">Storico</button>
                 </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
-    <div style="margin:0px auto;display: table;">
-        <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;color: rgb(0 98 41); font-weight: 600;" (click)="eseguiProcedure()">Esegui Procedure</button>
-        <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;color: rgb(0 98 41); font-weight: 600;">Aggiorna Stato</button>
-        <button mat-raised-button color="secondary" style="background-color: #f2c979;margin-right: 5px;color: rgb(0 98 41); font-weight: 600;" (click)="bloccaProcedure()">Blocca Procedure</button>
+    <div style="position:fixed; bottom: 10px;left: 0px;width: 100%;">
+        <div style="margin:0px auto;display: table;">
+            <button mat-raised-button color="secondary" style="background-color: #efd7a9;margin-right: 10px; font-weight: 600;" (click)="eseguiProcedure()">Esegui Procedure</button>
+            <button mat-raised-button color="secondary" style="background-color: #efd7a9;margin-right: 10px; font-weight: 600;">Aggiorna Stato</button>
+            <button mat-raised-button color="secondary" style="background-color: #efd7a9;margin-right: 10px; font-weight: 600;" (click)="bloccaProcedure()">Blocca Procedure</button>
+        </div>
     </div>
-    <!--https://orbit-svil.syssede.systest.sanpaoloimi.com/orbit/webapp/orbit-v1/launchers-->
-
 </div>

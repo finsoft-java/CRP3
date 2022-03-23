@@ -14,3 +14,12 @@ export interface Elaborazione {
   UTENTE?: string;
   PARAMETRI?: ElabParam[];
 }
+
+export interface StoricoElab {
+  STATO: string;
+  DATA_INIZIO: string;
+  DATA_FINE: string;
+  DUR_MEDIA: string;
+  NUM_SEGN: number;
+  UTENTE?: string;
+}

@@ -2,11 +2,40 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ValueBean, ListBean, Elaborazione, ElabParam } from '../_models';
+import { ValueBean, ListBean, Elaborazione, ElabParam, StoricoElab } from '../_models';
 
 @Injectable({ providedIn: 'root' })
 export class ElaborazioniService {
   constructor(private http: HttpClient) { }
+  mockData3: ListBean<StoricoElab> = {
+    data: [
+      {
+        STATO: 'ABORTED',
+        DATA_INIZIO: '24/02/22 08:36',
+        DATA_FINE: '24/02/22 09:36',
+        DUR_MEDIA: '00:60:00',
+        NUM_SEGN: 10,
+        UTENTE: 'U0J3597'
+      },
+      {
+        STATO: 'EXECUTED',
+        DATA_INIZIO: '24/02/22 08:36',
+        DATA_FINE: '24/02/22 09:36',
+        DUR_MEDIA: '00:60:00',
+        NUM_SEGN: 10,
+        UTENTE: 'U0J3597'
+      },
+      {
+        STATO: 'ERROR',
+        DATA_INIZIO: '24/02/22 08:36',
+        DATA_FINE: '24/02/22 09:36',
+        DUR_MEDIA: '00:60:00',
+        NUM_SEGN: 10,
+        UTENTE: 'U0J3597'
+      }
+    ],
+    count: 5
+  };
 
   mockData: ListBean<Elaborazione> = {
     data: [
@@ -352,6 +381,15 @@ export class ElaborazioniService {
     return new Observable<ListBean<ElabParam>>(observer => {
       // JSON parse/stringify serve per eseguire una deep copy
       const list: ListBean<any> = JSON.parse(JSON.stringify(this.mockData2));
+      observer.next(list);
+      observer.complete();
+    });
+  }
+
+  getStorico(): Observable<ListBean<Elaborazione>> {
+    return new Observable<ListBean<Elaborazione>>(observer => {
+      // JSON parse/stringify serve per eseguire una deep copy
+      const list: ListBean<Elaborazione> = JSON.parse(JSON.stringify(this.mockData3));
       observer.next(list);
       observer.complete();
     });
