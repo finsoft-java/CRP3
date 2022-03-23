@@ -18,19 +18,20 @@ export class HomeComponent implements OnInit {
 
   service: ElaborazioniService;
   displayedColumns: string[] = ['select', 'procedura', 'stato', 'dataInizio', 'dataFine', 'DurMedia', 'NumSegn', 'button'];
-  dataSource = new MatTableDataSource<Elaborazione>();
+  dataSources: MatTableDataSource<Elaborazione>[] = [];
   selection = new SelectionModel<Elaborazione>(true, []);
 
   isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
-    return numSelected === numRows;
+    //const numSelected = this.selection.selected.length;
+    //const numRows = this.dataSource.data.length;
+    //return numSelected === numRows;
+    return false;
   }
 
   masterToggle() {
-    this.isAllSelected() ?
-        this.selection.clear() :
-        this.dataSource.data.forEach(row => this.selection.select(row));
+    //this.isAllSelected() ?
+    //    this.selection.clear() :
+    //    this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
   ngOnInit(): void {
@@ -40,8 +41,25 @@ export class HomeComponent implements OnInit {
   getAll() {
     this.service.getAll().subscribe(
       listBean => {
-        this.dataSource.data = listBean.data;
-        console.log(this.dataSource.data);
+        this.dataSources = [];
+        const albero: Elaborazione[][] = [];
+        let sublist: Elaborazione[];
+        let sezioneCorrente = '';
+        listBean.data.forEach(x => {
+          if (x.SEZIONE !== sezioneCorrente) {
+            sezioneCorrente = x.SEZIONE;
+            sublist = [x];
+            albero.push(sublist);
+          } else {
+            sublist.push(x);
+          }
+        });
+        // ORA albero contiene tutte le sezioni
+        albero.forEach(l => {
+          const datasource = new MatTableDataSource<Elaborazione>(l);
+          this.dataSources.push(datasource);
+        });
+        console.log(this.dataSources[0].data);
       },
       error => {
         console.log('Emitting error:', error);
@@ -51,6 +69,6 @@ export class HomeComponent implements OnInit {
 
   addStorico(data: any) {
     console.log(data);
-    this.router.navigate(['storico/'+data]);
+    this.router.navigate(['storico/' + data]);
   }
 }

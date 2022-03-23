@@ -10,18 +10,6 @@ export class ElaborazioniService {
   mockData: ListBean<Elaborazione> = {
     data: [
       {
-        ID: -1,
-        PROCEDURA: "",
-        SEZIONE: "INPUT",
-        PAGINA: "MdP",
-        STATO: "",
-        DATA_INIZIO: "",
-        DATA_FINE: "",
-        DUR_MEDIA: "",
-        NUM_SEGN: 0,
-        TIPO_RIGA: "intestazione"
-      },
-      {
         ID: 1,
         PROCEDURA: "Operazioni",
         SEZIONE: "INPUT",
@@ -53,18 +41,6 @@ export class ElaborazioniService {
         DATA_FINE: "23/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
-      },
-      {
-        ID: -1,
-        PROCEDURA: "",
-        SEZIONE: "Diagnostica",
-        PAGINA: "MdP",
-        STATO: "",
-        DATA_INIZIO: "",
-        DATA_FINE: "",
-        DUR_MEDIA: "",
-        NUM_SEGN: 0,
-        TIPO_RIGA: "intestazione"
       },
       {
         ID: 4,
@@ -199,18 +175,6 @@ export class ElaborazioniService {
         NUM_SEGN: 1,
       },
       {
-        ID: -1,
-        PROCEDURA: "",
-        SEZIONE: "Input 2",
-        PAGINA: "MdP",
-        STATO: "",
-        DATA_INIZIO: "",
-        DATA_FINE: "",
-        DUR_MEDIA: "",
-        NUM_SEGN: 0,
-        TIPO_RIGA: "intestazione"
-      },
-      {
         ID: 14,
         PROCEDURA: "Rettifiche dati di INPUT (CLIENTI/OPERAZIONI) 1/2 (Pilota rettifiche)",
         SEZIONE: "Input 2",
@@ -255,18 +219,6 @@ export class ElaborazioniService {
         NUM_SEGN: 1,
       },
       {
-        ID: -1,
-        PROCEDURA: "",
-        SEZIONE: "Clustering - Fase 1",
-        PAGINA: "MdP",
-        STATO: "",
-        DATA_INIZIO: "",
-        DATA_FINE: "",
-        DUR_MEDIA: "",
-        NUM_SEGN: 0,
-        TIPO_RIGA: "intestazione"
-      },
-      {
         ID: 14,
         PROCEDURA: "Fatturato completo",
         SEZIONE: "Clustering - Fase 1",
@@ -309,18 +261,6 @@ export class ElaborazioniService {
         DATA_FINE: "24/02/22 09:36",
         DUR_MEDIA: "00:60:00",
         NUM_SEGN: 1,
-      },
-      {
-        ID: -1,
-        PROCEDURA: "",
-        SEZIONE: "Input 3",
-        PAGINA: "MdP",
-        STATO: "",
-        DATA_INIZIO: "",
-        DATA_FINE: "",
-        DUR_MEDIA: "",
-        NUM_SEGN: 0,
-        TIPO_RIGA: "intestazione"
       },
       {
         ID: 14,
