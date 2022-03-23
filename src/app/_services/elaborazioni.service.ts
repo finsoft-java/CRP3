@@ -1,3 +1,4 @@
+import { StoricoElab } from './../_models/Elaborazione';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -7,6 +8,37 @@ import { ValueBean, ListBean, Elaborazione } from '../_models';
 @Injectable({ providedIn: 'root' })
 export class ElaborazioniService {
   constructor(private http: HttpClient) { }
+  mockData2: ListBean<StoricoElab> = {
+    data: [
+      {
+        STATO: "ABORTED",
+        DATA_INIZIO: "24/02/22 08:36",
+        DATA_FINE: "24/02/22 09:36",
+        DUR_MEDIA: "00:60:00",
+        NUM_SEGN: 10,
+        UTENTE: "U0J3597"
+      },
+      {
+        STATO: "EXECUTED",
+        DATA_INIZIO: "24/02/22 08:36",
+        DATA_FINE: "24/02/22 09:36",
+        DUR_MEDIA: "00:60:00",
+        NUM_SEGN: 10,
+        UTENTE: "U0J3597"
+      },
+      {
+        STATO: "ERROR",
+        DATA_INIZIO: "24/02/22 08:36",
+        DATA_FINE: "24/02/22 09:36",
+        DUR_MEDIA: "00:60:00",
+        NUM_SEGN: 10,
+        UTENTE: "U0J3597"
+      }
+    ],
+    count: 5
+  };
+
+
   mockData: ListBean<Elaborazione> = {
     data: [
       {
@@ -321,7 +353,14 @@ export class ElaborazioniService {
       observer.complete();
     });
   }
-
+  getStorico(): Observable<ListBean<Elaborazione>> {
+    return new Observable<ListBean<Elaborazione>>(observer => {
+      // JSON parse/stringify serve per eseguire una deep copy
+      const list: ListBean<Elaborazione> = JSON.parse(JSON.stringify(this.mockData2));
+      observer.next(list);
+      observer.complete();
+    });
+  }
   preparaGiroconto(codCommessa: string) {
     return this.http.post<ValueBean<any>>(environment.wsUrl + `PreparaGiroconto.php?codCommessa=${codCommessa}`, '');
   }

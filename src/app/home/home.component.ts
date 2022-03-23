@@ -92,7 +92,7 @@ export class HomeComponent implements OnInit {
     console.log(data);
     this.router.navigate(['storico/' + data]);
   }
-
+  
   eseguiProcedure() {
     this.router.navigate(['lancia-procedure']); // TODO ovviamente dovrei passare dei parametri
   }

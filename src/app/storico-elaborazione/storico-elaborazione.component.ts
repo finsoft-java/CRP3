@@ -1,3 +1,6 @@
+import { Elaborazione, StoricoElab } from './../_models/Elaborazione';
+import { MatTableDataSource } from '@angular/material/table';
+import { ElaborazioniService } from './../_services/elaborazioni.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,35 +12,30 @@ import { Component, OnInit } from '@angular/core';
 export class StoricoElaborazioneComponent implements OnInit {
   
   idElaborazione!:string;
-  constructor(private route: ActivatedRoute, private router: Router) {
-
+  displayedColumns: string[] = ['stato', 'dataInizio', 'dataFine', 'DurMedia', 'NumSegn','Utente'];
+  dataSources: MatTableDataSource<StoricoElab> = new MatTableDataSource();
+  
+  constructor(private elabSvc: ElaborazioniService,private route: ActivatedRoute, private router: Router) {
+    this.service = elabSvc;
   }
 
+  service: ElaborazioniService;
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.idElaborazione = params.idElaborazione;
-      /*
-      this.svcAnalisi.getAll({ codCommessa: this.codCommessa }).subscribe(response => {
-        this.dataSource = new MatTableDataSource<VistaAnalisiCommessa>(response.data);
-      },
-      error => {
-        this.alertService.error(error);
-      });
-      this.svcAnalisi.getAllAggregata({ codCommessa: this.codCommessa }).subscribe(response => {
-        this.dataSourceAggregata = new MatTableDataSource<VistaAnalisiCommessa>(response.data);
-      },
-      error => {
-        this.alertService.error(error);
-      });
-      this.svcCruscotto.getById(this.codCommessa).subscribe(response => {
-        // eslint-disable-next-line prefer-destructuring
-        this.datiCruscotto = response.value;
-      },
-      error => {
-        this.alertService.error(error);
-      });
-      */
+     this.getAll();
     });
   }
 
+  getAll() {
+    this.service.getStorico().subscribe(
+      listBean => {
+        this.dataSources.data = listBean.data;
+        console.log(this.dataSources);
+      },
+      error => {
+        console.log('Emitting error:', error);
+      }
+    );
+  }
 }

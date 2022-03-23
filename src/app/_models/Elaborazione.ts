@@ -11,3 +11,12 @@ export interface Elaborazione {
   TIPO_RIGA?: 'normale'|'intestazione'|'storico';
   UTENTE?: string;
 }
+
+export interface StoricoElab {
+  STATO: string;
+  DATA_INIZIO: string;
+  DATA_FINE: string;
+  DUR_MEDIA: string;
+  NUM_SEGN: number;
+  UTENTE?: string;
+}
