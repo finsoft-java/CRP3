@@ -1,26 +1,22 @@
 import { ElabParam } from './ElabParam';
 
 export interface Elaborazione {
-  ID: number;
-  PROCEDURA: string;
-  SEZIONE: string;
-  PAGINA: 'MdP'|'CS'|'MdP2',
-  STATO: string;
-  DATA_INIZIO: string;
-  DATA_FINE: string;
-  DUR_MEDIA: string;
+  ID_ELABORAZIONE: number;
+  ID_PROCEDURA: number;
+  TITOLO_PROCEDURA: string;
+  STATO: string|null;
+  DATA_INIZIO: string|null;
+  DATA_FINE: string|null;
   NUM_SEGN: number;
-  TIPO_RIGA?: 'normale'|'intestazione'|'storico';
-  UTENTE?: string;
-  PARAMETRI?: ElabParam[];
+  UTENTE: string|null;
 }
 
-export interface StoricoElab {
-  PROCEDURA: string;
-  STATO: string;
-  DATA_INIZIO: string;
-  DATA_FINE: string;
-  DUR_MEDIA: string;
-  NUM_SEGN: number;
-  UTENTE?: string;
+export interface Procedura {
+  ID_PROCEDURA: number;
+  TITOLO_PROCEDURA: string;
+  SEZIONE: string;
+  PAGINA: 'MdP'|'CS'|'MdP2',
+  DUR_MEDIA: string|null;
+  ULTIMA_ELAB?: Elaborazione;
+  PARAMETRI?: ElabParam[];
 }

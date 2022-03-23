@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Component, OnInit } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ElaborazioniService } from '../_services/elaborazioni.service';
-import { Elaborazione } from '../_models/Elaborazione';
+import { Procedura } from '../_models/Elaborazione';
 
 @Component({
   selector: 'app-home',
@@ -16,17 +16,17 @@ export class HomeComponent implements OnInit {
   }
 
   service: ElaborazioniService;
-  displayedColumns: string[] = ['select', 'procedura', 'stato', 'dataInizio', 'dataFine', 'DurMedia', 'NumSegn','Utente', 'button'];
-  dataSources: MatTableDataSource<Elaborazione>[] = [];
-  selections: SelectionModel<Elaborazione>[] = [];
+  displayedColumns: string[] = ['select', 'procedura', 'stato', 'dataInizio', 'dataFine', 'DurMedia', 'NumSegn', 'Utente', 'button'];
+  dataSources: MatTableDataSource<Procedura>[] = [];
+  selections: SelectionModel<Procedura>[] = [];
 
   // NOTA: METODO CONTORTO, CREARE NUOVO COMPONENT TABELLINA
 
-  getDatasource(sezione: string): MatTableDataSource<Elaborazione> {
+  getDatasource(sezione: string): MatTableDataSource<Procedura> {
     return this.dataSources.find(x => x.data[0].SEZIONE === sezione)!;
   }
 
-  getSelect(sezione: string): SelectionModel<Elaborazione> {
+  getSelect(sezione: string): SelectionModel<Procedura> {
     const index = this.dataSources.findIndex(x => x.data[0].SEZIONE === sezione);
     return this.selections[index];
   }
@@ -62,8 +62,8 @@ export class HomeComponent implements OnInit {
     this.service.getAll().subscribe(
       listBean => {
         this.dataSources = [];
-        const albero: Elaborazione[][] = [];
-        let sublist: Elaborazione[];
+        const albero: Procedura[][] = [];
+        let sublist: Procedura[];
         let sezioneCorrente = '';
         listBean.data.forEach(x => {
           if (x.SEZIONE !== sezioneCorrente) {
@@ -76,9 +76,9 @@ export class HomeComponent implements OnInit {
         });
         // ORA albero contiene tutte le sezioni
         albero.forEach(l => {
-          const datasource = new MatTableDataSource<Elaborazione>(l);
+          const datasource = new MatTableDataSource<Procedura>(l);
           this.dataSources.push(datasource);
-          this.selections.push(new SelectionModel<Elaborazione>(true, []));
+          this.selections.push(new SelectionModel<Procedura>(true, []));
         });
         console.log(this.dataSources[0].data);
       },
@@ -92,16 +92,16 @@ export class HomeComponent implements OnInit {
     console.log(data);
     this.router.navigate(['storico/' + data]);
   }
-  
+
   eseguiProcedure() {
     this.router.navigate(['lancia-procedure']); // TODO ovviamente dovrei passare dei parametri
   }
 
   bloccaProcedure() {
     this.selections.forEach(s => {
-      s.selected.forEach(elab => {
-        if (elab.STATO === 'INITIAL') {
-          elab.STATO = '';
+      s.selected.forEach(proc => {
+        if (proc.ULTIMA_ELAB?.STATO === 'INITIAL') {
+          proc.ULTIMA_ELAB.STATO = '';
         }
       });
     });

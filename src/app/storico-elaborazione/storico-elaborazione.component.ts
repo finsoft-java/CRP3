@@ -1,8 +1,8 @@
-import { Elaborazione, StoricoElab } from './../_models/Elaborazione';
 import { MatTableDataSource } from '@angular/material/table';
-import { ElaborazioniService } from './../_services/elaborazioni.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Procedura, Elaborazione } from '../_models/Elaborazione';
+import { ElaborazioniService } from '../_services/elaborazioni.service';
 
 @Component({
   selector: 'app-storico-elaborazione',
@@ -11,11 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoricoElaborazioneComponent implements OnInit {
   nomeProc: string = '';
-  idElaborazione!:string;
-  displayedColumns: string[] = ['stato', 'dataInizio', 'dataFine', 'DurMedia', 'NumSegn','Utente'];
-  dataSources: MatTableDataSource<StoricoElab> = new MatTableDataSource();
-  
-  constructor(private elabSvc: ElaborazioniService,private route: ActivatedRoute, private router: Router) {
+  idElaborazione!: string;
+  displayedColumns: string[] = ['stato', 'dataInizio', 'dataFine', 'NumSegn', 'Utente'];
+  dataSources: MatTableDataSource<Elaborazione> = new MatTableDataSource();
+
+  constructor(private elabSvc: ElaborazioniService, private route: ActivatedRoute, private router: Router) {
     this.service = elabSvc;
   }
 
@@ -23,7 +23,7 @@ export class StoricoElaborazioneComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.idElaborazione = params.idElaborazione;
-     this.getAll();
+      this.getAll();
     });
   }
 
@@ -31,7 +31,7 @@ export class StoricoElaborazioneComponent implements OnInit {
     this.service.getStorico().subscribe(
       listBean => {
         this.dataSources.data = listBean.data;
-        this.nomeProc = listBean.data[0].PROCEDURA;
+        this.nomeProc = listBean.data[0].TITOLO_PROCEDURA;
       },
       error => {
         console.log('Emitting error:', error);

@@ -2,37 +2,40 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ValueBean, ListBean, Elaborazione, ElabParam, StoricoElab } from '../_models';
+import { ListBean, Procedura, ElabParam, Elaborazione } from '../_models';
 
 @Injectable({ providedIn: 'root' })
 export class ElaborazioniService {
   constructor(private http: HttpClient) { }
-  mockData3: ListBean<StoricoElab> = {
+  mockData3: ListBean<Elaborazione> = {
     data: [
       {
-        PROCEDURA: "Operazioni",
-        STATO: "ABORTED",
-        DATA_INIZIO: "24/02/22 08:36",
-        DATA_FINE: "24/02/22 09:36",
-        DUR_MEDIA: "00:60:00",
+        ID_ELABORAZIONE: 666,
+        ID_PROCEDURA: 1,
+        TITOLO_PROCEDURA: 'Operazioni',
+        STATO: 'ABORTED',
+        DATA_INIZIO: '24/02/22 08:36',
+        DATA_FINE: '24/02/22 09:36',
         NUM_SEGN: 10,
         UTENTE: 'U0J3597'
       },
       {
-        PROCEDURA: "Operazioni",
-        STATO: "EXECUTED",
-        DATA_INIZIO: "24/02/22 08:36",
-        DATA_FINE: "24/02/22 09:36",
-        DUR_MEDIA: "00:60:00",
+        ID_ELABORAZIONE: 667,
+        ID_PROCEDURA: 1,
+        TITOLO_PROCEDURA: 'Operazioni',
+        STATO: 'EXECUTED',
+        DATA_INIZIO: '24/02/22 08:36',
+        DATA_FINE: '24/02/22 09:36',
         NUM_SEGN: 10,
         UTENTE: 'U0J3597'
       },
       {
-        PROCEDURA: "Operazioni",
-        STATO: "ERROR",
-        DATA_INIZIO: "24/02/22 08:36",
-        DATA_FINE: "24/02/22 09:36",
-        DUR_MEDIA: "00:60:00",
+        ID_ELABORAZIONE: 668,
+        ID_PROCEDURA: 1,
+        TITOLO_PROCEDURA: 'Operazioni',
+        STATO: 'ERROR',
+        DATA_INIZIO: '24/02/22 08:36',
+        DATA_FINE: '24/02/22 09:36',
         NUM_SEGN: 10,
         UTENTE: 'U0J3597'
       }
@@ -40,316 +43,441 @@ export class ElaborazioniService {
     count: 5
   };
 
-  mockData: ListBean<Elaborazione> = {
+  mockData: ListBean<Procedura> = {
     data: [
       {
-        ID: 1,
-        PROCEDURA: 'Operazioni',
+        ID_PROCEDURA: 1,
+        TITOLO_PROCEDURA: 'Operazioni',
         SEZIONE: 'INPUT',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '22/02/22 08:36',
-        DATA_FINE: '22/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: 'Operazioni',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 2,
-        PROCEDURA: 'Clienti',
+        ID_PROCEDURA: 2,
+        TITOLO_PROCEDURA: 'Clienti',
         SEZIONE: 'INPUT',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 0,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: 'Clienti',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 10,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 3,
-        PROCEDURA: 'Gruppi',
+        ID_PROCEDURA: 3,
+        TITOLO_PROCEDURA: 'Gruppi',
         SEZIONE: 'INPUT',
         PAGINA: 'MdP',
-        STATO: 'INITIAL',
-        DATA_INIZIO: '23/02/22 08:36',
-        DATA_FINE: '23/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'INITIAL',
+          TITOLO_PROCEDURA: 'Gruppi',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 0,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 4,
-        PROCEDURA: 'Controllo Parametri',
+        ID_PROCEDURA: 4,
+        TITOLO_PROCEDURA: 'Controllo Parametri',
         SEZIONE: 'Diagnostica',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '25/02/22 08:36',
-        DATA_FINE: '25/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: 'Controllo Parametri',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 0,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 5,
-        PROCEDURA: 'Controllo REGLTRY_COUNTERPARTY_TYPE_CD',
+        ID_PROCEDURA: 5,
+        TITOLO_PROCEDURA: 'Controllo REGLTRY_COUNTERPARTY_TYPE_CD',
         SEZIONE: 'Diagnostica',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: 'Controllo REGLTRY_COUNTERPARTY_TYPE_CD',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 6,
-        PROCEDURA: 'Controllo coerenza FINANCIAL_BOOK_RK, FLG_INCL_FT_REP e COD_MDP',
+        ID_PROCEDURA: 6,
+        TITOLO_PROCEDURA: 'Controllo coerenza FINANCIAL_BOOK_RK, FLG_INCL_FT_REP e COD_MDP',
         SEZIONE: 'Diagnostica',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 10,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 7,
-        PROCEDURA: 'Controllo F.TECNICA, MACROPRODOTTO',
+        ID_PROCEDURA: 7,
+        TITOLO_PROCEDURA: 'Controllo F.TECNICA, MACROPRODOTTO',
         SEZIONE: 'Diagnostica',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 8,
-        PROCEDURA: 'Controllo SAE',
+        ID_PROCEDURA: 8,
+        TITOLO_PROCEDURA: 'Controllo SAE',
         SEZIONE: 'Diagnostica',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 9,
-        PROCEDURA: 'Controllo ATECO',
+        ID_PROCEDURA: 9,
+        TITOLO_PROCEDURA: 'Controllo ATECO',
         SEZIONE: 'Diagnostica',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 10,
-        PROCEDURA: 'Controllo COUNTERPARTY_REGION_CD',
+        ID_PROCEDURA: 10,
+        TITOLO_PROCEDURA: 'Controllo COUNTERPARTY_REGION_CD',
         SEZIONE: 'Diagnostica',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 11,
-        PROCEDURA: 'Controllo Modello SAE/RAE/ATECO, Modello BALANCE',
+        ID_PROCEDURA: 11,
+        TITOLO_PROCEDURA: 'Controllo Modello SAE/RAE/ATECO, Modello BALANCE',
         SEZIONE: 'Diagnostica',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 12,
-        PROCEDURA: 'Controllo Infrasegment Correlation',
+        ID_PROCEDURA: 12,
+        TITOLO_PROCEDURA: 'Controllo Infrasegment Correlation',
         SEZIONE: 'Diagnostica',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 13,
-        PROCEDURA: 'Controllo Gruppi',
+        ID_PROCEDURA: 13,
+        TITOLO_PROCEDURA: 'Controllo Gruppi',
         SEZIONE: 'Diagnostica',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 14,
-        PROCEDURA: 'Controllo parametri Rischio Paese',
+        ID_PROCEDURA: 14,
+        TITOLO_PROCEDURA: 'Controllo parametri Rischio Paese',
         SEZIONE: 'Diagnostica',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 14,
-        PROCEDURA: 'Controllo RATING_GRADE',
+        ID_PROCEDURA: 14,
+        TITOLO_PROCEDURA: 'Controllo RATING_GRADE',
         SEZIONE: 'Diagnostica',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 14,
-        PROCEDURA: 'Rettifiche dati di INPUT (CLIENTI/OPERAZIONI) 1/2 (Pilota rettifiche)',
+        ID_PROCEDURA: 14,
+        TITOLO_PROCEDURA: 'Rettifiche dati di INPUT (CLIENTI/OPERAZIONI) 1/2 (Pilota rettifiche)',
         SEZIONE: 'Input 2',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 14,
-        PROCEDURA: 'Dati Operazioni su Clienti',
+        ID_PROCEDURA: 14,
+        TITOLO_PROCEDURA: 'Dati Operazioni su Clienti',
         SEZIONE: 'Input 2',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 14,
-        PROCEDURA: 'Integra Operazioni con B2, Rischio Paese e ID_CARTO',
+        ID_PROCEDURA: 14,
+        TITOLO_PROCEDURA: 'Integra Operazioni con B2, Rischio Paese e ID_CARTO',
         SEZIONE: 'Input 2',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 14,
-        PROCEDURA: 'Rettifiche dati di INPUT (CLIENTI/OPERAZIONI) 2/2 (Pilota rettifiche)',
+        ID_PROCEDURA: 14,
+        TITOLO_PROCEDURA: 'Rettifiche dati di INPUT (CLIENTI/OPERAZIONI) 2/2 (Pilota rettifiche)',
         SEZIONE: 'Input 2',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 14,
-        PROCEDURA: 'Fatturato completo',
+        ID_PROCEDURA: 14,
+        TITOLO_PROCEDURA: 'Fatturato completo',
         SEZIONE: 'Clustering - Fase 1',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 14,
-        PROCEDURA: 'Rating a controparti',
+        ID_PROCEDURA: 14,
+        TITOLO_PROCEDURA: 'Rating a controparti',
         SEZIONE: 'Clustering - Fase 1',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 14,
-        PROCEDURA: 'Modelli Settoriali e IC Rischio Paese',
+        ID_PROCEDURA: 14,
+        TITOLO_PROCEDURA: 'Modelli Settoriali e IC Rischio Paese',
         SEZIONE: 'Clustering - Fase 1',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 14,
-        PROCEDURA: 'IC e Classi Dimensionali Rischio Controparte',
+        ID_PROCEDURA: 14,
+        TITOLO_PROCEDURA: 'IC e Classi Dimensionali Rischio Controparte',
         SEZIONE: 'Clustering - Fase 1',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 14,
-        PROCEDURA: 'Calcolo Rating Stress',
+        ID_PROCEDURA: 14,
+        TITOLO_PROCEDURA: 'Calcolo Rating Stress',
         SEZIONE: 'Input 3',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
       {
-        ID: 14,
-        PROCEDURA: 'Calcolo LGD DWT',
+        ID_PROCEDURA: 14,
+        TITOLO_PROCEDURA: 'Calcolo LGD DWT',
         SEZIONE: 'Input 3',
         PAGINA: 'MdP',
-        STATO: 'EXECUTED',
-        DATA_INIZIO: '24/02/22 08:36',
-        DATA_FINE: '24/02/22 09:36',
         DUR_MEDIA: '00:60:00',
-        NUM_SEGN: 1,
-        UTENTE: 'U0J3597'
+        ULTIMA_ELAB: {
+          ID_ELABORAZIONE: 666,
+          ID_PROCEDURA: 1,
+          STATO: 'EXECUTED',
+          TITOLO_PROCEDURA: '',
+          DATA_INIZIO: '22/02/22 08:36',
+          DATA_FINE: '22/02/22 09:36',
+          NUM_SEGN: 1,
+          UTENTE: 'U0J3597'
+        }
       },
     ],
     count: 5
   };
 
-  getAll(): Observable<ListBean<Elaborazione>> {
-    return new Observable<ListBean<Elaborazione>>(observer => {
+  getAll(): Observable<ListBean<Procedura>> {
+    return new Observable<ListBean<Procedura>>(observer => {
       // JSON parse/stringify serve per eseguire una deep copy
-      const list: ListBean<Elaborazione> = JSON.parse(JSON.stringify(this.mockData));
+      const list: ListBean<Procedura> = JSON.parse(JSON.stringify(this.mockData));
       observer.next(list);
       observer.complete();
     });
