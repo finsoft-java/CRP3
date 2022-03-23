@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ElaborazioniService } from '../_services/elaborazioni.service';
 import { Elaborazione } from '../_models/Elaborazione';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-home',
@@ -12,26 +11,47 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private elabSvc: ElaborazioniService,private router: Router) {
+  constructor(private elabSvc: ElaborazioniService, private router: Router) {
     this.service = elabSvc;
   }
 
   service: ElaborazioniService;
   displayedColumns: string[] = ['select', 'procedura', 'stato', 'dataInizio', 'dataFine', 'DurMedia', 'NumSegn', 'button'];
   dataSources: MatTableDataSource<Elaborazione>[] = [];
-  selection = new SelectionModel<Elaborazione>(true, []);
+  selections: SelectionModel<Elaborazione>[] = [];
 
-  isAllSelected() {
-    //const numSelected = this.selection.selected.length;
-    //const numRows = this.dataSource.data.length;
-    //return numSelected === numRows;
+  // NOTA: METODO CONTORTO, CREARE NUOVO COMPONENT TABELLINA
+
+  getDatasource(sezione: string): MatTableDataSource<Elaborazione> {
+    return this.dataSources.find(x => x.data[0].SEZIONE === sezione)!;
+  }
+
+  getSelect(sezione: string): SelectionModel<Elaborazione> {
+    const index = this.dataSources.findIndex(x => x.data[0].SEZIONE === sezione);
+    return this.selections[index];
+  }
+
+  isAllSelected(sezione: string) {
+    const datasource = this.getDatasource(sezione);
+    const selection = this.getSelect(sezione);
+    if (datasource && selection) {
+      const numSelected = selection.selected.length;
+      const numRows = datasource.data.length;
+      return numSelected === numRows;
+    }
     return false;
   }
 
-  masterToggle() {
-    //this.isAllSelected() ?
-    //    this.selection.clear() :
-    //    this.dataSource.data.forEach(row => this.selection.select(row));
+  masterToggle(sezione: string) {
+    const selection = this.getSelect(sezione);
+    const dataSource = this.getDatasource(sezione);
+    if (selection && dataSource) {
+      if (this.isAllSelected(sezione)) {
+        selection.clear();
+      } else {
+        dataSource.data.forEach(row => selection.select(row));
+      }
+    }
   }
 
   ngOnInit(): void {
@@ -58,6 +78,7 @@ export class HomeComponent implements OnInit {
         albero.forEach(l => {
           const datasource = new MatTableDataSource<Elaborazione>(l);
           this.dataSources.push(datasource);
+          this.selections.push(new SelectionModel<Elaborazione>(true, []));
         });
         console.log(this.dataSources[0].data);
       },
