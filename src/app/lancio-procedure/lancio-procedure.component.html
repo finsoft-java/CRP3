@@ -2,17 +2,26 @@
 
 
 <div style="margin-top:20px; margin-bottom: 100px;">
-    <div *ngFor="let proc of procedureSelezionate">
-        <h5 style="text-align: center;background-color: #f2c979;margin: 0px;padding: 5px 0px;text-transform: uppercase;">{{proc.TITOLO_PROCEDURA}}</h5>
+    <div *ngFor="let proc of procedureSelezionate" style="float:left;width:100%">
+        <h5 style="text-align: center;background-color: #f2c979;margin: 0px;padding: 5px 0px;text-transform: uppercase; margin-bottom: 20px;">{{proc.TITOLO_PROCEDURA}}</h5>
         <div *ngFor="let par of proc.PARAMETRI">
-            <div style="width: 20%; font-weight: bold;">{{par.NOME_PARAMETRO}}</div>
-            <div style="width: 80%">
-                <input *ngIf="par.TIPO=='string'" [(ngModel)]="par.VALORE_PREC"/>
-                <input *ngIf="par.TIPO=='number'" type="number" [(ngModel)]="par.VALORE_PREC"/>
-                <select *ngIf="par.TIPO=='select'" [(ngModel)]="par.VALORE_PREC">
-                    <option *ngFor="let opt of par.OPTIONS" [value]="opt.VALUE ? opt.VALUE: opt.DESC">{{opt.DESC}}</option>
-                </select>
-            </div>
+                <mat-form-field *ngIf="par.TIPO=='string'" hintLabel="" appearance="fill" style="float:left;width: calc(25% - 5px);margin-right:5px; ">
+                    <mat-label>{{par.NOME_PARAMETRO}}</mat-label>
+                    <input matInput #input [(ngModel)]="par.VALORE_PREC" placeholder="Ex. Nougat">
+                    <!--<mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>-->
+                </mat-form-field>
+
+                <mat-form-field *ngIf="par.TIPO=='number'" hintLabel="" appearance="fill" style="float:left;width: calc(25% - 5px);margin-right:5px; ">
+                    <mat-label>{{par.NOME_PARAMETRO}}</mat-label>
+                    <input matInput #input type="number" [(ngModel)]="par.VALORE_PREC" placeholder="Ex. Nougat">
+                </mat-form-field>               
+
+                <mat-form-field appearance="fill" *ngIf="par.TIPO=='select'" style="float:left;width: calc(25% - 5px);margin-right:5px; "> 
+                    <mat-label>{{par.NOME_PARAMETRO}}</mat-label>
+                    <mat-select [(ngModel)]="par.VALORE_PREC">
+                      <mat-option *ngFor="let opt of par.OPTIONS" value="opt.VALUE ? opt.VALUE: opt.DESC">{{opt.DESC}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
         </div>
     </div>
     <!--https://orbit-svil.syssede.systest.sanpaoloimi.com/orbit/webapp/orbit-v1/launchers-->

@@ -1,5 +1,6 @@
 import { getAllLifecycleHooks } from '@angular/compiler/src/lifecycle_reflector';
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Procedura, ElabParam } from '../_models';
 import { ElaborazioniService } from '../_services/elaborazioni.service';
 
