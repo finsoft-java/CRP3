@@ -57,10 +57,10 @@ export class AppComponent implements OnInit {
   }
 
   inviaB2ween() {
-    confirm('La versione corrente verrà inviata a BETWEEN. Procedere?');
+    confirm('Confermare l\'invio della versione 14 a B2WEEN?');
   }
 
   inviaTdB() {
-    confirm('La versione corrente verrà inviata a TdB. Procedere?');
+    confirm('Confermare l\'invio della versione 14 al Tableau de Board?');
   }
 }
