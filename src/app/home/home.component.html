@@ -6,7 +6,7 @@
         <h5 style="text-align: center;background-color: #f2c979;margin: 0px;padding: 5px 0px;text-transform: uppercase;">{{dataSource.data[0].SEZIONE}}</h5>
         <table mat-table [dataSource]="dataSource" style="width:100%;margin-bottom:15px" class="contentTable mat-elevation-z8">
             <ng-container matColumnDef="select">
-                <th mat-header-cell *matHeaderCellDef>
+                <th mat-header-cell *matHeaderCellDef style="padding-left: 4px">
                     <mat-checkbox (change)="$event ? masterToggle(dataSource.data[0].SEZIONE) : null"
                                 [checked]="getSelect(dataSource.data[0].SEZIONE).hasValue() && isAllSelected(dataSource.data[0].SEZIONE)"
                                 [indeterminate]="getSelect(dataSource.data[0].SEZIONE).hasValue() && !isAllSelected(dataSource.data[0].SEZIONE)">
