@@ -7,8 +7,8 @@
         <div *ngFor="let par of proc.PARAMETRI">
                 <mat-form-field *ngIf="par.TIPO=='string'" hintLabel="" appearance="fill" style="float:left;width: calc(25% - 5px);margin-right:5px; ">
                     <mat-label>{{par.NOME_PARAMETRO}}</mat-label>
-                    <input matInput #input [(ngModel)]="par.VALORE_PREC" placeholder="Ex. ">
-                    <!--<mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>-->
+                    <input matInput #input maxlength="10" [(ngModel)]="par.VALORE_PREC" placeholder="Ex. ">
+                    <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
                 </mat-form-field>
 
                 <mat-form-field *ngIf="par.TIPO=='number'" hintLabel="" appearance="fill" style="float:left;width: calc(25% - 5px);margin-right:5px; ">
