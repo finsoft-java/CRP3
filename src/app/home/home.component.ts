@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['select', 'procedura', 'stato', 'dataInizio', 'dataFine', 'DurMedia', 'NumSegn', 'Utente', 'button'];
   dataSources: MatTableDataSource<Procedura>[] = [];
   selections: SelectionModel<Procedura>[] = [];
+  proceduraInCorso = 'Nessun Processo'; // TODO caricare da webservice e refreshare periodicamente tutto
 
   // NOTA: METODO CONTORTO, CREARE NUOVO COMPONENT TABELLINA
 

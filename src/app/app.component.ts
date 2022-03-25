@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   currentUserSubject: User = new User();
   menuDisabled = true;
   ruoloUtente: string = '';
-  datiComuni?: DatiComuni;
+  datiComuni?: DatiComuni; // TODO refreshare periodicamente, oppure ancora meglio creare un websocket
 
   constructor(private route: ActivatedRoute,
               private router: Router,
