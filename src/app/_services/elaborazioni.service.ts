@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ListBean, Procedura, ElabParam, Elaborazione } from '../_models';
+import { ListBean, Procedura, ElabParam, Elaborazione, Segnalazione } from '../_models';
 
 @Injectable({ providedIn: 'root' })
 export class ElaborazioniService {
@@ -522,6 +522,34 @@ export class ElaborazioniService {
       // JSON parse/stringify serve per eseguire una deep copy
       const list: ListBean<Elaborazione> = JSON.parse(JSON.stringify(this.mockData3));
       observer.next(list);
+      observer.complete();
+    });
+  }
+
+  mockData4: ListBean<Segnalazione> = {
+    data: [
+      {
+        ID_ELABORAZIONE: 666,
+        COD_ERRORE: '101',
+        MSG: 'ABI not found 1234'
+      },
+      {
+        ID_ELABORAZIONE: 666,
+        COD_ERRORE: '101',
+        MSG: 'ABI not found 4321'
+      },
+      {
+        ID_ELABORAZIONE: 666,
+        COD_ERRORE: '777',
+        MSG: 'Some very very bad error'
+      },
+    ],
+    count: 3
+  };
+
+  getSegnalazioni(idElaborazione: number): Observable<ListBean<Segnalazione>> {
+    return new Observable<ListBean<Segnalazione>>(observer => {
+      observer.next(this.mockData4);
       observer.complete();
     });
   }
