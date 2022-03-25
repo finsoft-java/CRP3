@@ -3,7 +3,8 @@ import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { AuthenticationService } from './_services/authentication.service';
-import { User } from './_models';
+import { DatiComuni, User } from './_models';
+import { AzioniService } from './_services/azioni.service';
 
 @Component({
   selector: 'app-root',
@@ -18,10 +19,12 @@ export class AppComponent implements OnInit {
   currentUserSubject: User = new User();
   menuDisabled = true;
   ruoloUtente: string = '';
+  datiComuni?: DatiComuni;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private authenticationService: AuthenticationService) {
+              private authenticationService: AuthenticationService,
+              private azioniService: AzioniService) {
     this.routerFrontend = router;
   }
 
@@ -47,6 +50,8 @@ export class AppComponent implements OnInit {
       this.menuDisabled = ((evt as NavigationEnd).url === '/login');
       this.ruoloUtente = localStorage.getItem('role') || '';
     });
+
+    this.azioniService.getDatiComuni().subscribe(response => { this.datiComuni = response.value; });
   }
 
   logout(): void {
@@ -57,10 +62,10 @@ export class AppComponent implements OnInit {
   }
 
   inviaB2ween() {
-    confirm('Confermare l\'invio della versione 14 a B2WEEN?');
+    confirm(`Confermare l\'invio della versione ${this.datiComuni?.versione} a B2WEEN?`);
   }
 
   inviaTdB() {
-    confirm('Confermare l\'invio della versione 14 al Tableau de Board?');
+    confirm(`Confermare l\'invio della versione ${this.datiComuni?.versione} al Tableau de Board?`);
   }
 }

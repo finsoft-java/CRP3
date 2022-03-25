@@ -3,3 +3,4 @@ export * from './ListBean';
 export * from './ValueBean';
 export * from './Elaborazione';
 export * from './ElabParam';
+export * from './DatiComuni';

@@ -1,9 +1,9 @@
 <mat-drawer-container class="example-container" autosize>
 <div style="width: 300px;position: fixed;top: 67px;right: 0px;padding: 10px;background-color: #f2c979;border-radius: 0px 0px 0px 17px;">
   <p style="font-size:12px;margin-bottom:0px;">
-      Data Rif: 31/05/2021 - V.: 14  <br>
-      INSTVALS_GEST: P20210531MSIVGCONSO- <br>
-      COUNTERPARTY_MART: P20210503UG 
+      Data Rif: {{this.datiComuni?.dataRif}} - V.: {{this.datiComuni?.versione}}  <br>
+      INSTVALS_GEST: {{this.datiComuni?.partInstValsGest}} <br>
+      COUNTERPARTY_MART: {{this.datiComuni?.partCounterpartyMart}}
   </p>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light" style="position: fixed;width: 100%;top: 0px;z-index: 1;left: 0px;">
