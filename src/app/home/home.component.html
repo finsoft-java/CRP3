@@ -11,7 +11,7 @@
                                 [checked]="getSelect(dataSource.data[0].SEZIONE).hasValue() && isAllSelected(dataSource.data[0].SEZIONE)"
                                 [indeterminate]="getSelect(dataSource.data[0].SEZIONE).hasValue() && !isAllSelected(dataSource.data[0].SEZIONE)">
                     </mat-checkbox>
-                </th>
+                </th> 
                 <td mat-cell *matCellDef="let row">
                     <mat-checkbox (click)="$event.stopPropagation()"
                                 (change)="$event ? getSelect(dataSource.data[0].SEZIONE).toggle(row) : null"
