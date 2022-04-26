@@ -1,1 +1,127 @@
-<p>nuova-versione works!</p>
+<div>
+  <p>
+    Attenzione: verificare la tipologia di default al fine di impostare
+    correttamente il flag TIPOLOGIA_DEFAULT in tabella parametri.
+  </p>
+  <h4>Periodo: 31/01/2022 - Scenario: S - Versione: 15</h4>
+  <br />
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col d-flex flex-column">
+      <mat-form-field appearance="fill">
+        <mat-label> Partizione INVALS_GEST </mat-label>
+        <mat-select>
+          <mat-option>Partizione 1</mat-option>
+          <mat-option>Partizione 2</mat-option>
+          <mat-option>Partizione 2</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col d-flex flex-column">
+      <mat-form-field appearance="fill">
+        <mat-label> Partizione COUNTERPARTY_MART </mat-label>
+        <mat-select>
+          <mat-option>Partizione 1</mat-option>
+          <mat-option>Partizione 2</mat-option>
+          <mat-option>Partizione 2</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col d-flex flex-column">
+      <mat-form-field appearance="fill">
+        <mat-label> Versione CRP2</mat-label>
+        <mat-select>
+          <mat-option>Partizione 1</mat-option>
+          <mat-option>Partizione 2</mat-option>
+          <mat-option>Partizione 2</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-2 d-flex flex-column align-items-end">
+      <mat-slide-toggle>Duplica tabelle di input</mat-slide-toggle>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10 d-flex flex-column">
+      <mat-form-field appearance="fill">
+        <mat-label>Note: </mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+    <div class="col d-flex flex-column align-items-center">
+      <div>
+        <button mat-raised-button>Carica</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Riepilogo stato procedure</p>
+
+<div class="titleDiv">
+  <div>
+    <h5 class="tableHeader">Inizializzazione</h5>
+    <table
+      [dataSource]="dataSource"
+      mat-table
+      class="contentTable mat-elevation-z8"
+    >
+      <ng-container matColumnDef="procedura">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="proceduraHeader"
+        >
+          Procedura
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          class="nomeProcedura"
+        >
+          {{ element.TITOLO_PROCEDURA }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="stato">
+        <th mat-header-cell *matHeaderCellDef>Stato</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.STATO }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="dataInizio">
+        <th mat-header-cell *matHeaderCellDef>Data Inizio</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.DATA_INIZIO }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="dataFine">
+        <th mat-header-cell *matHeaderCellDef>Data Fine</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.DATA_FINE }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="DurMedia">
+        <th mat-header-cell *matHeaderCellDef>Durata Media</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.DUR_MEDIA }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="NumSegn">
+        <th mat-header-cell *matHeaderCellDef>Num. Segnalazioni</th>
+        <td mat-cell *matCellDef="let element">
+          <a
+            *ngIf="element.NUM_SEGN > 0"
+            [routerLink]="'/segnalazioni/' + element.ID_PROCEDURA"
+            >{{ element.NUM_SEGN }}</a
+          >
+          <span *ngIf="element.NUM_SEGN == 0">{{ element.NUM_SEGN }}</span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>

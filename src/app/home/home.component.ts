@@ -8,8 +8,9 @@ import { Procedura } from '../_models/Elaborazione';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./../shared.css', './home.component.css']
 })
+
 export class HomeComponent implements OnInit {
   constructor(private elabSvc: ElaborazioniService, private router: Router) {
     this.service = elabSvc;

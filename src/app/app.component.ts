@@ -11,6 +11,7 @@ import { AzioniService } from './_services/azioni.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
   routerFrontend: Router;
   showFiller = false;

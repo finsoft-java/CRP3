@@ -1,1 +1,132 @@
-<p>cluster-singoli works!</p>
+<h5>ELABORAZIONI - Riepilogo Stato Procedure</h5>
+<p>Procedura in corso: {{ proceduraInCorso }}</p>
+
+<div class="titleDiv">
+  <div *ngFor="let dataSource of dataSources">
+    <h5 class="tableHeader">
+      {{ dataSource.data[0].SEZIONE }}
+    </h5>
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      class="contentTable mat-elevation-z8"
+    >
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox
+            (change)="$event ? masterToggle(dataSource.data[0].SEZIONE) : null"
+            [checked]="
+              getSelect(dataSource.data[0].SEZIONE).hasValue() &&
+              isAllSelected(dataSource.data[0].SEZIONE)
+            "
+            [indeterminate]="
+              getSelect(dataSource.data[0].SEZIONE).hasValue() &&
+              !isAllSelected(dataSource.data[0].SEZIONE)
+            "
+          >
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox
+            (click)="$event.stopPropagation()"
+            (change)="
+              $event ? getSelect(dataSource.data[0].SEZIONE).toggle(row) : null
+            "
+            [checked]="getSelect(dataSource.data[0].SEZIONE).isSelected(row)"
+          >
+          </mat-checkbox>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="procedura">
+        <th class="proceduraHeader" mat-header-cell *matHeaderCellDef>
+          Procedura
+        </th>
+        <td
+          class="nomeProcedura"
+          mat-cell
+          *matCellDef="let element"
+          [title]="element.DES_CONTO || ''"
+        >
+          {{ element.TITOLO_PROCEDURA }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="stato">
+        <th mat-header-cell *matHeaderCellDef>Stato</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.ULTIMA_ELAB?.STATO }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="dataInizio">
+        <th mat-header-cell *matHeaderCellDef class="importi">Data Inizio</th>
+        <td mat-cell *matCellDef="let element" class="importi">
+          {{ element.ULTIMA_ELAB?.DATA_INIZIO }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="dataFine">
+        <th mat-header-cell *matHeaderCellDef class="importi">Data Fine</th>
+        <td mat-cell *matCellDef="let element" class="importi">
+          {{ element.ULTIMA_ELAB?.DATA_FINE }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="DurMedia">
+        <th mat-header-cell *matHeaderCellDef class="importi">Durata Media</th>
+        <td mat-cell *matCellDef="let element" class="importi">
+          {{ element.DUR_MEDIA }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="NumSegn">
+        <th mat-header-cell *matHeaderCellDef class="importi">
+          Num. Segnalazioni
+        </th>
+        <td mat-cell *matCellDef="let element" class="importi">
+          <a
+            *ngIf="element.ULTIMA_ELAB && element.ULTIMA_ELAB.NUM_SEGN > 0"
+            [routerLink]="
+              '/segnalazioni/' + element.ULTIMA_ELAB.ID_ELABORAZIONE
+            "
+            >{{ element.ULTIMA_ELAB?.NUM_SEGN }}</a
+          >
+          <span
+            *ngIf="!element.ULTIMA_ELAB || element.ULTIMA_ELAB.NUM_SEGN == 0"
+            >{{ element.ULTIMA_ELAB?.NUM_SEGN }}</span
+          >
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Utente">
+        <th mat-header-cell *matHeaderCellDef class="utente">Utente</th>
+        <td mat-cell *matCellDef="let element" class="importi">
+          {{ element.ULTIMA_ELAB?.UTENTE }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="button">
+        <th mat-header-cell *matHeaderCellDef class="importi"></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button (click)="addStorico(element.ID_PROCEDURA)">
+            Storico
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <div class="bottomButtonsContainer">
+    <div class="bottomButtonsDiv">
+      <button
+        mat-raised-button
+        class="bottomButtons"
+        (click)="eseguiProcedure()"
+      >
+        Esegui Procedure
+      </button>
+      <button mat-raised-button class="bottomButtons">Aggiorna Stato</button>
+      <button
+        mat-raised-button
+        class="bottomButtons"
+        (click)="bloccaProcedure()"
+      >
+        Blocca Procedure
+      </button>
+    </div>
+  </div>
+</div>

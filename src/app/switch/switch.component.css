@@ -1,0 +1,21 @@
+p {
+  clear: left;
+  text-align: center;
+}
+
+h4 {
+  color: #037d32;
+  text-align: center;
+}
+
+mat-form-field {
+  float: left;
+  width: 44%;
+  margin-right: 2%;
+  font-size: 0.8rem;
+}
+
+button {
+  margin-top: 0.3rem;
+  width: 8%;
+}

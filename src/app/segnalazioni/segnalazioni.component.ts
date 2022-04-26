@@ -7,7 +7,7 @@ import { ElaborazioniService } from '../_services/elaborazioni.service';
 @Component({
   selector: 'app-segnalazioni',
   templateUrl: './segnalazioni.component.html',
-  styleUrls: ['./segnalazioni.component.css']
+  styleUrls: ['./../shared.css', './segnalazioni.component.css']
 })
 export class SegnalazioniComponent implements OnInit {
   idElaborazione!: number;

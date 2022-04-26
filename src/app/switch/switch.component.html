@@ -1,1 +1,36 @@
-<p>switch works!</p>
+<div>
+  <h4>Effettua lo switch verso un periodo o una versione esistente</h4>
+  <p>switch periodo/versione</p>
+  <br />
+</div>
+
+<div>
+  <div *ngFor="let proc of procedureSelezionate">
+    <div *ngFor="let par of proc.PARAMETRI">
+      <mat-form-field appearance="fill" *ngIf="par.TIPO == 'select'">
+        <mat-label> Selezione data </mat-label>
+        <mat-select [(ngModel)]="par.VALORE_PREC">
+          <mat-option
+            *ngFor="let opt of par.OPTIONS"
+            value="opt.VALUE ? opt.VALUE: opt.DESC"
+            >{{ opt.DESC }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" *ngIf="par.TIPO == 'select'">
+        <mat-label> Selezionare...</mat-label>
+        <mat-select [(ngModel)]="par.VALORE_PREC">
+          <mat-option
+            *ngFor="let opt of par.OPTIONS"
+            value="opt.VALUE ? opt.VALUE: opt.DESC"
+            >{{ opt.DESC }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button>Cerca</button>
+  </div>
+</div>
+<div>
+  <p>La tabella è allineata per data rif</p>
+</div>

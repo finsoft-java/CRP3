@@ -1,43 +1,126 @@
 <mat-drawer-container class="example-container" autosize>
-<div style="width: 300px;position: fixed;top: 67px;right: 0px;padding: 10px;z-index:999;background-color: #f2c979;border-radius: 0px 0px 0px 17px;">
-  <div style="font-size:12px;margin-bottom:5px;float:left;width:50%"> Data Riferimento:</div> <div style="font-size:12px;margin-bottom:5px;text-align:right;float:left;width:50%"> <strong>{{this.datiComuni?.dataRif}}</strong> </div>
-  <div style="font-size:12px;margin-bottom:5px;float:left;width:50%"> Versione:</div> <div style="font-size:12px;margin-bottom:5px;text-align:right;float:left;width:50%"> <strong>{{this.datiComuni?.versione}}</strong></div> 
-  <div style="font-size:12px;margin-bottom:5px;float:left;width:50%"> INSTVALS_GEST:</div> <div style="font-size:12px;margin-bottom:5px;text-align:right;float:left;width:50%"> <strong>{{this.datiComuni?.partInstValsGest}}</strong></div> 
-  <div style="font-size:12px;margin-bottom:5px;float:left;width:50%"> COUNTERPARTY_MART:</div> <div style="font-size:12px;margin-bottom:5px;text-align:right;float:left;width:50%"> <strong>{{this.datiComuni?.partCounterpartyMart}}</strong></div> 
-</div> 
-<nav class="navbar navbar-expand-lg navbar-light" style="position: fixed;width: 100%;top: 0px;z-index: 1;left: 0px;">
-  <a class="navbar-brand" href="javascript:void(0);"><img src="../assets/img/logoEstesoRiskPII.jpg"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/mdp">MdP RADAR</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/cluster-singoli">Cluster Singoli RADAR</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/mdp2">MdP RADAR 2</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0" style="margin-right: 60px;">
-      <button mat-button [matMenuTriggerFor]="menu" style="text-transform: uppercase;">Amministrazione <mat-icon>menu</mat-icon></button>
-      <mat-menu #menu="matMenu">
-        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/nuovo-periodo">Nuovo Periodo</a>
-        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/nuova-versione">Nuova Versione</a>
-        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/switch">Switch Periodo/Versione</a>
-        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" (click)="inviaB2ween()">Invia a B2WEEN</a> 	 	
-        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" (click)="inviaTdB()">Invia a TdB</a> 	 	
-        <a mat-menu-item class="nav-link" style="line-height: 30px;background: #f2c979" routerLink="/riconciliazione">Riconciliazione</a> 	 	       	 	       	 	    
-      </mat-menu>
-    </form>
-    <img src="../assets/img/logoIntesa.gif">
+  <div class="biggerScreen">
+    <div class="biggerScreenDiv">Data Riferimento:</div>
+    <div class="biggerScreenDiv rightAlign">
+      <strong>{{ this.datiComuni?.dataRif }}</strong>
+    </div>
+    <div class="biggerScreenDiv">Versione:</div>
+    <div class="biggerScreenDiv rightAlign">
+      <strong>{{ this.datiComuni?.versione }}</strong>
+    </div>
+    <div class="biggerScreenDiv">INSTVALS_GEST:</div>
+    <div class="biggerScreenDiv rightAlign">
+      <strong>{{ this.datiComuni?.partInstValsGest }}</strong>
+    </div>
+    <div class="biggerScreenDiv">COUNTERPARTY_MART:</div>
+    <div class="biggerScreenDiv rightAlign">
+      <strong>{{ this.datiComuni?.partCounterpartyMart }}</strong>
+    </div>
   </div>
-</nav>
-  <div class="content" role="main" style="margin-top: 90px;">
+
+  <div class="smallerScreen">
+    <div class="container">
+      <div class="row d-flex">
+        <div class="col" style="margin-left: 1rem">
+          <p>
+            &nbsp;Data Riferimento:
+            <strong>{{ this.datiComuni?.dataRif }}</strong>
+          </p>
+        </div>
+        <div class="col-2">
+          <p>
+            Versione: <strong>{{ this.datiComuni?.versione }}</strong>
+          </p>
+        </div>
+        <div class="col">
+          <p>
+            INSTVALS_GEST:<strong>{{
+              this.datiComuni?.partInstValsGest
+            }}</strong>
+          </p>
+        </div>
+        <div class="col">
+          <p>
+            COUNTERPARTY_MART:
+            <strong>{{ this.datiComuni?.partCounterpartyMart }}</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="javascript:void(0);"
+      ><img src="../assets/img/logoEstesoRiskPII.jpg"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav nav-fill w-100">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/mdp">MdP RADAR</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cluster-singoli"
+            >Cluster Singoli RADAR</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/mdp2">MdP RADAR 2</a>
+        </li>
+
+        <form class="form-inline my-2 my-lg-0">
+          <button mat-button [matMenuTriggerFor]="menu">
+            AMMINISTRAZIONE <mat-icon>menu</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" class="matMenu">
+            <a
+              mat-menu-item
+              class="nav-link matMenuItem"
+              routerLink="/nuovo-periodo"
+              >Nuovo Periodo</a
+            >
+            <a
+              mat-menu-item
+              class="nav-link matMenuItem"
+              routerLink="/nuova-versione"
+              >Nuova Versione</a
+            >
+            <a mat-menu-item class="nav-link matMenuItem" routerLink="/switch"
+              >Switch Periodo/Versione</a
+            >
+            <a
+              mat-menu-item
+              class="nav-link matMenuItem"
+              (click)="inviaB2ween()"
+              >Invia a B2WEEN</a
+            >
+            <a mat-menu-item class="nav-link matMenuItem" (click)="inviaTdB()"
+              >Invia a TdB</a
+            >
+            <a
+              mat-menu-item
+              class="nav-link matMenuItem"
+              routerLink="/riconciliazione"
+              >Riconciliazione</a
+            >
+          </mat-menu>
+        </form>
+      </ul>
+      <img class="bigImg" src="../assets/img/logoIntesa.gif" />
+      <img class="smallImg" src="../assets/img/logoSmall.png" />
+    </div>
+  </nav>
+  <div class="content" role="main">
     <div class="container">
       <alert></alert>
       <router-outlet></router-outlet>

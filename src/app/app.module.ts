@@ -42,6 +42,7 @@ import { RiconciliazioneComponent } from './riconciliazione/riconciliazione.comp
 import { StoricoElaborazioneComponent } from './storico-elaborazione/storico-elaborazione.component';
 import { LancioProcedureComponent } from './lancio-procedure/lancio-procedure.component';
 import { SegnalazioniComponent } from './segnalazioni/segnalazioni.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle'; 
 
 registerLocaleData(localeIt);
 
@@ -88,7 +89,8 @@ registerLocaleData(localeIt);
     MatCheckboxModule,
     MatExpansionModule,
     MatAutocompleteModule,
-    NgxMatSelectSearchModule
+    NgxMatSelectSearchModule,
+    MatSlideToggleModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

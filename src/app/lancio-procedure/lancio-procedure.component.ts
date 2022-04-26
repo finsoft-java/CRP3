@@ -7,7 +7,7 @@ import { ElaborazioniService } from '../_services/elaborazioni.service';
 @Component({
   selector: 'app-lancio-procedure',
   templateUrl: './lancio-procedure.component.html',
-  styleUrls: ['./lancio-procedure.component.css']
+  styleUrls: ['./../shared.css', './lancio-procedure.component.css']
 })
 export class LancioProcedureComponent implements OnInit {
   parametri: ElabParam[][] = [];

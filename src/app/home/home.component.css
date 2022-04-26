@@ -1,0 +1,21 @@
+h5,
+p {
+  text-align: center;
+}
+
+.tableHeader {
+  background-color: #f2c979;
+  margin: 0px;
+  padding: 5px 0px;
+  text-transform: uppercase;
+}
+
+.contentTable {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.titleDiv {
+  margin-top: 20px;
+  margin-bottom: 100px;
+}

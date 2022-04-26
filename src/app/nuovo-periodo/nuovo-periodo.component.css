@@ -1,0 +1,19 @@
+p {
+  clear: left;
+  text-align: center;
+}
+
+h4 {
+  color: #037d32;
+  text-align: center;
+}
+
+button {
+  margin-top: 0.3rem;
+  margin-left: 1rem;
+}
+
+.firstForm {
+  float: left;
+  margin-right: 0.8rem;
+}

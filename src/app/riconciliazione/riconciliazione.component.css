@@ -1,0 +1,17 @@
+p {
+  clear: left;
+  text-align: center;
+}
+
+h4 {
+  color: #037d32;
+  text-align: center;
+}
+
+button {
+  margin-top: 0.3rem;
+}
+.nomeProcedura {
+  text-align: center;
+  padding: 0px 15px;
+}

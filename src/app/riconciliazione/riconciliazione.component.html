@@ -1,1 +1,108 @@
-<p>riconciliazione works!</p>
+<div>
+  <p>
+    Effettua il giro di riconciliazione per popolare le tabelle
+    TE_BDOR0_OPERAZIONI, TE_BDOR0_CLIENTI, TE_BDOR0_GARANZIE
+  </p>
+</div>
+
+<div class="container">
+  <div class="row d-flex justify-content-between justify-content-md-center">
+    <div class="col-10 d-flex justify-content-between">
+      <mat-slide-toggle>IRBF</mat-slide-toggle>
+      <mat-slide-toggle>IRBA</mat-slide-toggle>
+      <mat-slide-toggle>IRB</mat-slide-toggle>
+      <mat-slide-toggle>STD</mat-slide-toggle>
+      <mat-slide-toggle>IRB_SIMPLE_RW</mat-slide-toggle>
+      <mat-slide-toggle>IRB_SLOTTING</mat-slide-toggle>
+    </div>
+  </div>
+  <br />
+  <div class="row justify-content-md-center">
+    <div class="col-5 d-flex flex-column justify-content-between">
+      <mat-form-field appearance="fill">
+        <mat-label> Partizione TE_BDTD0_CRM_ALLOC_DET_RW_E</mat-label>
+        <mat-select>
+          <mat-option>Partizione 1</mat-option>
+          <mat-option>Partizione 2</mat-option>
+          <mat-option>Partizione 2</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-1">
+      <button mat-raised-button>Carica</button>
+    </div>
+  </div>
+</div>
+
+<div>
+  <br />
+  <h4>Riepilogo stato procedure</h4>
+  <p>Procedura in corso: {{ proceduraInCorso }}</p>
+</div>
+
+<div class="titleDiv">
+  <div>
+    <h5 class="tableHeader">Inizializzazione</h5>
+    <table
+      [dataSource]="dataSource"
+      mat-table
+      class="contentTable mat-elevation-z8"
+    >
+      <ng-container matColumnDef="procedura">
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          class="proceduraHeader"
+        >
+          Procedura
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          class="nomeProcedura"
+        >
+          {{ element.TITOLO_PROCEDURA }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="stato">
+        <th mat-header-cell *matHeaderCellDef>Stato</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.STATO }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="dataInizio">
+        <th mat-header-cell *matHeaderCellDef>Data Inizio</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.DATA_INIZIO }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="dataFine">
+        <th mat-header-cell *matHeaderCellDef>Data Fine</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.DATA_FINE }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="DurMedia">
+        <th mat-header-cell *matHeaderCellDef>Durata Media</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.DUR_MEDIA }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="NumSegn">
+        <th mat-header-cell *matHeaderCellDef>Num. Segnalazioni</th>
+        <td mat-cell *matCellDef="let element">
+          <a
+            *ngIf="element.NUM_SEGN > 0"
+            [routerLink]="'/segnalazioni/' + element.ID_PROCEDURA"
+            >{{ element.NUM_SEGN }}</a
+          >
+          <span *ngIf="element.NUM_SEGN == 0">{{ element.NUM_SEGN }}</span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>

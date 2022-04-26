@@ -7,7 +7,7 @@ import { ElaborazioniService } from '../_services/elaborazioni.service';
 @Component({
   selector: 'app-storico-elaborazione',
   templateUrl: './storico-elaborazione.component.html',
-  styleUrls: ['./storico-elaborazione.component.css']
+  styleUrls: ['./../shared.css', './storico-elaborazione.component.css']
 })
 export class StoricoElaborazioneComponent implements OnInit {
   nomeProc: string = '';
